@@ -4,12 +4,19 @@ namespace FizzBuzz.App
 {
     internal class Program
     {
-        // version from 1 to 100
+        //Extend version
         private static void Main(string[] args)
         {
+            var low = 1;
+            var hi = 100;
+            if (args.Length > 0)
+                int.TryParse(args[0], out low);
+            if (args.Length > 1)
+                int.TryParse(args[1], out hi);
+
             IGetOutput output = new GetOutput();
 
-            for (var i = 1; i <= 100; i++)
+            for (var i = low; i <= hi; i++)
             {
                 Console.WriteLine(output.Get(i));
             }
@@ -17,6 +24,6 @@ namespace FizzBuzz.App
             Console.ReadKey();
         }
 
-        
+
     }
 }
